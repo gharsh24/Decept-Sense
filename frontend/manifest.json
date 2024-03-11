@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Decept Sense",
+  "version": "1.0",
+  "description": "Detects and highlights dark patterns on websites to empower users against deceptive practices.",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "contextMenus",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Decept Sense",
+    "default_icon": {
+      "16": "letter-d.png",
+      "32": "letter-d-32.png",
+      "128": "letter-d-128.png"
+    }
+  },
+  "icons": {
+    "32": "letter-d-32.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
